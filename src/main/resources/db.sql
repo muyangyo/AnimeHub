@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS blog_spring.blog;
 CREATE TABLE blog_spring.blog (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(200) NULL,
+    digest VARCHAR(200) NULL,
     content TEXT NULL,
     user_id INT(11) NULL,
     delete_flag TINYINT(4) NULL DEFAULT 0,

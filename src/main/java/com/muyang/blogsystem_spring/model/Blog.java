@@ -16,6 +16,7 @@ import java.util.Date;
 public class Blog {
     private int id;
     private String title;//标题
+    private String digest;//摘要(后台生成)
     private String content;//正文
     private int userId;//作者id
     private int deleteFlag;
@@ -32,6 +33,7 @@ public class Blog {
         return "Blog(" +
                 "id=" + id +
                 ", title='" + title + '\'' +
+                ", digest='" + digest + '\'' +
                 ", content='" + content + '\'' +
                 ", userId=" + userId +
                 ", deleteFlag=" + deleteFlag +

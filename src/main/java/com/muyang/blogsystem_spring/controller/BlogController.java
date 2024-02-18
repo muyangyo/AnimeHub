@@ -3,6 +3,7 @@ package com.muyang.blogsystem_spring.controller;
 import com.muyang.blogsystem_spring.model.Blog;
 import com.muyang.blogsystem_spring.model.Result;
 import com.muyang.blogsystem_spring.service.BlogService;
+import com.muyang.blogsystem_spring.tools.MarkDownTool;
 import com.muyang.blogsystem_spring.tools.TokenTool;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
@@ -68,8 +69,12 @@ public class BlogController {
         Claims map = TokenTool.getMapFromToken(token);
         int userId = Integer.parseInt(map.get("userId").toString());
 
+        //根据 content 生成文章摘要
+        String digest = MarkDownTool.getDigest(content);
+
         Blog blog = new Blog();
         blog.setTitle(title);
+        blog.setDigest(digest);
         blog.setContent(content);
         blog.setUserId(userId);
         return blogService.addBlog(blog);
@@ -92,9 +97,13 @@ public class BlogController {
             return Result.fail("非作者本人,无法修改!");
         }
 
+        //根据 content 重新生成文章摘要
+        String digest = MarkDownTool.getDigest(content);
+
         Blog blog = new Blog();
         blog.setContent(content);
         blog.setTitle(title);
+        blog.setDigest(digest);
         blog.setId(blogId);
         return blogService.updateBlog(blog);
     }

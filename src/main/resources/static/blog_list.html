@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博客列表页</title>
+    <title>文章汇总页</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/blog_list.css">
     <script src="js/jquery.min.js"></script>
@@ -17,12 +17,12 @@
     <!-- logo -->
     <img src="image/logo.png" alt="">
     <div class="title">
-        <a href="blog_list.html">博客系统</a>
+        <a href="blog_list.html">二次元 Hub</a>
     </div>
     <!-- 只是一个空白, 用来把后面的链接挤过去 -->
     <div class="spacer"></div>
     <a href="blog_list.html">主页</a>
-    <a href="blog_edit.html">写博客</a>
+    <a href="blog_edit.html">写文章</a>
     <a href="login.html" onclick="logout()">注销</a>
 
 </div>
@@ -54,19 +54,6 @@
     </div>
     <!-- 右侧信息 -->
     <div class="container-right">
-        <!--        <div class="blog">-->
-        <!--            &lt;!&ndash; 博客标题 &ndash;&gt;-->
-        <!--            <div class="title">我的第一篇博客</div>-->
-        <!--            &lt;!&ndash; 博客的发布时间 &ndash;&gt;-->
-        <!--            <div class="date">2023-05-11 20:00:00</div>-->
-        <!--            &lt;!&ndash; 博客的摘要&ndash;&gt;-->
-        <!--            <div class="desc">-->
-        <!--                &lt;!&ndash; 使用 lorem 生成一段随机的字符串 &ndash;&gt;-->
-        <!--                从今天起, 我要认真敲代码. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis repellendus-->
-        <!--                voluptatum, reiciendis rem consectetur incidunt aspernatur eveniet excepturi magni quis sint, provident-->
-        <!--                est at et pariatur dolorem aliquid fugit voluptatem.-->
-        <!--            </div>-->
-        <!--        </div>-->
 
     </div>
 </div>
@@ -114,7 +101,7 @@
 
                     let divDesc = document.createElement("div");
                     divDesc.className = "desc";
-                    divDesc.innerHTML = blog.content;
+                    divDesc.innerHTML = blog.digest;
                     divBlog.appendChild(divDesc);
 
                     /*点击博客区块跳转*/
